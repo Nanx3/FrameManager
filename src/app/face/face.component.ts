@@ -1,8 +1,14 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { retryWhen, tap, delay } from 'rxjs/operators';
-import { WebsocketService } from './../websocket.service';
-import { Subscription } from 'rxjs';
 import { DomSanitizer } from '@angular/platform-browser';
+
+// Rxjs
+import { retryWhen, tap, delay } from 'rxjs/operators';
+import { Subscription } from 'rxjs';
+
+// Services
+import { WebsocketService } from './../websocket.service';
+import { DataFormatService } from './../data-format.service';
+
 
 @Component({
   selector: 'app-face',
@@ -12,7 +18,10 @@ import { DomSanitizer } from '@angular/platform-browser';
 export class FaceComponent implements OnInit {
   faces: Array<any> = [];
   private socketSubscription: Subscription;
-  constructor(private websocketService: WebsocketService, private sanitizer : DomSanitizer) { }
+  constructor(
+    private websocketService: WebsocketService,
+    private dataFormatService: DataFormatService,
+    private sanitizer : DomSanitizer) {}
 
   ngOnInit(): void {
     this.init();
@@ -33,10 +42,14 @@ export class FaceComponent implements OnInit {
       )
       .subscribe(({data}) => {
         const objectURL = URL.createObjectURL(data);
-        const face = this.sanitizer.bypassSecurityTrustUrl(objectURL);
-        if (!this.faces.includes(face)) {
-          this.faces.push(face);
-        }
+        let face = {
+          id: this.faces.length + 1,
+          date: this.dataFormatService.dateFormat(Date.now()),
+          time: this.dataFormatService.timeFormat(Date.now()),
+          src: this.sanitizer.bypassSecurityTrustUrl(objectURL),
+          size: ''
+        };
+        this.faces.push(face);
       }, err => {
         console.log('No more data');
         console.error(err);

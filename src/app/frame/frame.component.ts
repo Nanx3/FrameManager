@@ -1,8 +1,14 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { retryWhen, tap, delay } from 'rxjs/operators';
-import { WebsocketService } from './../websocket.service';
-import { Subscription } from 'rxjs';
 import { DomSanitizer } from '@angular/platform-browser';
+
+// Rxjs
+import { retryWhen, tap, delay } from 'rxjs/operators';
+import { Subscription } from 'rxjs';
+
+// Services
+import { WebsocketService } from './../websocket.service';
+import { DataFormatService } from './../data-format.service';
+
 
 @Component({
   selector: 'app-frame',
@@ -13,7 +19,10 @@ export class FrameComponent implements OnInit {
   frame: any;
   private socketSubscription: Subscription;
 
-  constructor(private websocketService: WebsocketService, private sanitizer : DomSanitizer) { }
+  constructor(
+    private websocketService: WebsocketService,
+    private dataFormatService: DataFormatService,
+    private sanitizer : DomSanitizer) {}
 
   ngOnInit(): void {
     this.init();
@@ -34,7 +43,12 @@ export class FrameComponent implements OnInit {
       )
       .subscribe(({data}) => {
         const objectURL = URL.createObjectURL(data);
-        const frame = this.sanitizer.bypassSecurityTrustUrl(objectURL);
+        let frame = {
+          date: this.dataFormatService.dateFormat(Date.now()),
+          time: this.dataFormatService.timeFormat(Date.now()),
+          src: this.sanitizer.bypassSecurityTrustUrl(objectURL),
+          size: ''
+        };
         this.frame = frame;
       }, err => {
         console.log('No more data');
