@@ -1,3 +1,4 @@
 <div class="la-frame-component">
-    <img class="la-frame-component--item" [src]="frame.src">
+    <img *ngIf="frame" class="la-frame-component--item" [src]="frame.src">
+    <button (click)="toggle()">Start | Pause</button>
 </div>

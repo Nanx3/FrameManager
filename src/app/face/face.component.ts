@@ -6,9 +6,8 @@ import { retryWhen, tap, delay } from 'rxjs/operators';
 import { Subscription } from 'rxjs';
 
 // Services
-import { WebsocketService } from './../websocket.service';
-import { DataFormatService } from './../data-format.service';
-
+import { WebsocketService } from '../services/websocket.service';
+import { DataFormatService } from '../services/data-format.service';
 
 @Component({
   selector: 'app-face',
@@ -29,7 +28,7 @@ export class FaceComponent implements OnInit {
 
   init() {
     const delayTime = 3000;
-    this.websocketService.getData$(`ws://127.0.0.1:3012/face`)
+    this.socketSubscription  = this.websocketService.getData$(`ws://127.0.0.1:3012/face`)
       .pipe(
         retryWhen(errors =>
           errors.pipe(

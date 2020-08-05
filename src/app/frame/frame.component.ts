@@ -6,8 +6,8 @@ import { retryWhen, tap, delay } from 'rxjs/operators';
 import { Subscription } from 'rxjs';
 
 // Services
-import { WebsocketService } from './../websocket.service';
-import { DataFormatService } from './../data-format.service';
+import { WebsocketService } from '../services/websocket.service';
+import { DataFormatService } from '../services/data-format.service';
 
 
 @Component({
@@ -30,7 +30,7 @@ export class FrameComponent implements OnInit {
 
   init() {
     const delayTime = 3000;
-    this.websocketService.getData$(`ws://127.0.0.1:3012/video`)
+    this.socketSubscription = this.websocketService.getData$(`ws://127.0.0.1:3012/video`)
       .pipe(
         retryWhen(errors =>
           errors.pipe(
@@ -56,14 +56,14 @@ export class FrameComponent implements OnInit {
       });
   }
 
-  ngOnDestroy() {
-    this.socketSubscription.unsubscribe();
-  }
-
   toggle() {
     if (this.socketSubscription && !this.socketSubscription.closed) {
       return this.socketSubscription.unsubscribe();
     }
     this.init();
+  }
+
+  ngOnDestroy() {
+    this.socketSubscription.unsubscribe();
   }
 }
