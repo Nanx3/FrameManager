@@ -35,8 +35,6 @@ export class FaceComponent implements OnInit {
         const objectURL = URL.createObjectURL(data);
         const face = this.sanitizer.bypassSecurityTrustUrl(objectURL);
         if (!this.faces.includes(face)) {
-          // agregar hora de llegada
-          console.log(face);
           this.faces.push(face);
         }
       }, err => {

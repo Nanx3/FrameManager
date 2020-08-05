@@ -1,10 +1,24 @@
-.box-container {
+@import '_spacing';
+
+.la-container {
     display: flex;
     flex-direction: row;
-    .box-container--right {
-        width: 50%;
+    @media (max-width: 768px) {
+        flex-wrap: wrap;
     }
-    .box-container--left {
+    > div {
+        padding: $md-padding;
+    }
+    .la-container--right {
         width: 50%;
+        @media (max-width: 768px) {
+            width: 100%;
+        }
+    }
+    .la-container--left {
+        width: 50%;
+        @media (max-width: 768px) {
+            width: 100%;
+        }
     }
 }

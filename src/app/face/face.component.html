@@ -1,3 +1,6 @@
-<div *ngFor="let face of faces" class="face-gallery">
-    <img [src]="face">
+<div class="la-face-component">
+    <img 
+        class="la-face-component--item"
+        *ngFor="let face of faces"
+        [src]="face">
 </div>

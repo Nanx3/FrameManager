@@ -1,0 +1,10 @@
+.la-face-component {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  .la-face-component--item {
+      height: 170px;
+      display: block;
+      object-fit: scale-down;
+   }
+}
