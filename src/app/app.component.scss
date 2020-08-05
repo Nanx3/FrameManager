@@ -1,0 +1,10 @@
+.box-container {
+    display: flex;
+    flex-direction: row;
+    .box-container--right {
+        width: 50%;
+    }
+    .box-container--left {
+        width: 50%;
+    }
+}
