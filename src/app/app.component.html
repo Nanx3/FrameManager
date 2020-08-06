@@ -1,8 +1,32 @@
-<div class="la-container">
-    <div class="la-container--left">
-        <app-frame></app-frame>
-    </div>
-    <div  class="la-container--right">
-        <app-face></app-face>
-    </div>
+<div class="la-main-container">
+    <mat-toolbar class="la-toolbar">
+        <button class="la-toolbar--button" mat-icon-button (click)="sidenav.toggle()">
+            <mat-icon class="la-toolbar-icon">menu</mat-icon>
+        </button>
+        <span  class="la-toolbar--title">Lanaccess</span>
+    </mat-toolbar>
+    <mat-sidenav-container class="la-sidenav">
+        <mat-sidenav class="la-sidenav--menu" #sidenav mode="side" opened>
+            <mat-list class="la-list">
+                <mat-list-item class="la-list--item">
+                    <mat-icon class="la-list-icon">home</mat-icon>
+                    <span class="la-list-title">Dashboard</span>
+                </mat-list-item>
+                <mat-list-item class="la-list--item">
+                    <mat-icon class="la-list-icon">home</mat-icon>
+                    <span class="la-list-title">Example</span>
+                </mat-list-item>
+            </mat-list>
+        </mat-sidenav>
+        <mat-sidenav-content class="la-sidenav--content">
+            <mat-grid-list cols="2">
+                <mat-grid-tile>
+                    <app-frame></app-frame>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                    <app-face></app-face>
+                </mat-grid-tile>
+            </mat-grid-list>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
 </div>

@@ -1,24 +1,92 @@
 @import '_spacing';
 
-.la-container {
-    display: flex;
-    flex-direction: row;
-    @media (max-width: 768px) {
-        flex-wrap: wrap;
-    }
-    > div {
-        padding: $md-padding;
-    }
-    .la-container--right {
-        width: 50%;
-        @media (max-width: 768px) {
-            width: 100%;
+.la-main-container {
+    .la-toolbar {
+        color: #fff;
+        box-shadow: 0 0.5rem 1rem 0 #1a1f33;
+        height: 4.75rem;
+        padding: 1.25rem;
+        background-color: #323259;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1040;
+        .la-toolbar--button {
+            .la-toolbar-icon {
+                margin-right: 1.25rem;
+                color: #b4b4db;
+            }
+        }
+        .la-toolbar--title {
+            padding: 0 1.25rem;
+            font-size: 1.75rem;
+            white-space: nowrap;
+            text-decoration: none;
+            border-left: 1px solid #1b1b38;
         }
     }
-    .la-container--left {
-        width: 50%;
-        @media (max-width: 768px) {
-            width: 100%;
+    .la-sidenav {
+        padding-top: 4.75rem;
+        min-height: 100vh;
+        background-color: #1b1b38;
+        color: #fff;
+        font-family: Open Sans,sans-serif;
+        font-size: .9375rem;
+        font-weight: 400;
+        line-height: 1.25rem;
+        min-height: 100vh;
+        .la-sidenav--menu {
+            background-color: #323259;
+            box-shadow: 0 0.5rem 1rem 0 #1a1f33;
+            color: #fff;
+            font-family: Open Sans,sans-serif;
+            font-size: .9375rem;
+            font-weight: 400;
+            line-height: 1.25rem;
+            width: 16rem;
+            top: 4.75rem;
+            margin: 0 -1.25rem -1.25rem;
+          .la-list {
+                margin: 0;
+                padding: 0;
+                background-color: #323259;
+                color: #fff;
+                font-weight: 400;
+                line-height: 1.25rem;
+                width: 16rem;
+            .la-list--item {
+                border-top: none;
+                border-bottom: 1px solid #1b1b38;
+                color: #fff;
+                font-size: .9375rem;
+                font-weight: 400;
+                line-height: 1.25rem;
+                padding: .35rem 1rem;
+                .la-list-icon {
+                    color: #b4b4db;
+                    font-size: 1.25rem;
+                    margin: 0 .5rem 0 0;
+                    width: 1em;
+                    text-align: center;
+                }
+                .la-list-title {
+                    font-family: Open Sans,sans-serif;
+                    flex: 1 0 auto;
+                    font-size: .8125rem;
+                    font-weight: 600;
+                    line-height: 1.5rem;
+                }
+                &:hover {
+                    background-color: transparent;
+                    color: #b18aff;
+                    cursor: pointer;
+                }
+            }
+          }
+        }
+        .la-sidenav--content {
+          padding: 2.25rem 2.25rem .75rem;
         }
     }
 }

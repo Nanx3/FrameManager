@@ -45,8 +45,7 @@ export class FaceComponent implements OnInit {
           id: this.faces.length + 1,
           date: this.dataFormatService.dateFormat(Date.now()),
           time: this.dataFormatService.timeFormat(Date.now()),
-          src: this.sanitizer.bypassSecurityTrustUrl(objectURL),
-          size: ''
+          src: this.sanitizer.bypassSecurityTrustUrl(objectURL)
         };
         this.faces.push(face);
       }, err => {
