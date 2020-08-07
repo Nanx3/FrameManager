@@ -31,7 +31,7 @@ body {
     scrollbar-track-color: #252547;
     display: flex;
     flex-direction: column;
-    @media (max-width: 992px) {
+    @media (max-width: 1200px) {
         margin: 10px 0 !important;
     }
     .la-card--header {
