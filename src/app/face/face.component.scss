@@ -1,5 +1,5 @@
 .la-card {
-   height: 50vh;
+   height: 60vh;
    width: 100%;
    display: flex;
    .la-card--content {
@@ -10,23 +10,41 @@
       overflow-x: hidden;
       scrollbar-face-color: #13132b;
       scrollbar-track-color: #252547;
+      &::-webkit-scrollbar {
+         width: .3125rem;
+         height: .3125rem;
+      }
+      &::-webkit-scrollbar-thumb {
+         background: #13132b;
+         cursor: pointer;
+         border-radius: .15625rem;
+      }
+      &::-webkit-scrollbar-track {
+         background: #252547;
+      }
       .la-face-component {
          .la-face-component--item {
-            border-bottom: 1px solid #1b1b38;
             display: flex;
+            flex-wrap: wrap;
             color: #fff;
             font-size: .9375rem;
             font-weight: 400;
             line-height: 1.25rem;
             padding: 1rem;
+            border-bottom: 1px solid #1b1b38;
             .la-face-comparation {
                display: flex;
+               flex-wrap: wrap;
                margin-right: 20px;
                .la-face-comparation--chevron {
                   display: flex;
                   align-items: center;
                   font-size: 32px;
                   padding: 0 20px;
+                  @media (max-width: 992px) {
+                     display: none;
+                     width: 100%;
+                  }
                }
                .la-face-comparation--img{
                   border: #b18aff 2px solid;
@@ -35,6 +53,10 @@
                   overflow: hidden;
                   position: relative;
                   border-radius: .25rem;
+                  @media (max-width: 992px) {
+                     width: 100%;
+                     margin: 10px;
+                  }
                   img {
                      height: 170px;
                      display: block;
@@ -63,8 +85,12 @@
             }
          }
          .la-face-component-info {
-            border-left: 1px solid #1b1b38;
             padding-left: 20px;
+            border-left: 1px solid #1b1b38;
+            @media (max-width: 992px) {
+               border-left: none;
+            }
+
             h1 {
                font-size: 2.25rem;
                font-weight: 700;

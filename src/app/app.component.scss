@@ -13,8 +13,8 @@
         right: 0;
         z-index: 1040;
         .la-toolbar-header--button {
+            margin-right: 1.25rem;
             .la-toolbar-icon {
-                margin-right: 1.25rem;
                 color: #b4b4db;
             }
         }
@@ -28,7 +28,6 @@
     }
     .la-sidenav {
         padding-top: 4.75rem;
-        min-height: 100vh;
         background-color: #1b1b38;
         color: #fff;
         font-family: Open Sans,sans-serif;
@@ -36,6 +35,23 @@
         font-weight: 400;
         line-height: 1.25rem;
         min-height: 100vh;
+        .la-sidenav-grid {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            .la-sidenav-grid--left {
+                width: 60%;
+                @media (max-width: 992px) {
+                    width: 100%;
+                }
+            }
+            .la-sidenav-grid--right {
+                width: 40%;
+                @media (max-width: 992px) {
+                    width: 100%;
+                }
+            }
+        }
         .la-sidenav--menu {
             background-color: #323259;
             box-shadow: 0 0.5rem 1rem 0 #1a1f33;
@@ -90,6 +106,9 @@
         }
     }
     .la-toolbar-footer {
+        bottom: 0;
+        width: 100%;
+        position: fixed;
         display: flex;
         background-color: #323259;
         border-top: 1px solid #1b1b38;
@@ -102,5 +121,6 @@
         display: block;
         margin-top: auto;
         box-shadow: 0 0.5rem 1rem 0 #1a1f33;
+        z-index: 1000;
     }
 }

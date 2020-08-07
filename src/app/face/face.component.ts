@@ -9,6 +9,9 @@ import { Subscription } from 'rxjs';
 import { WebsocketService } from '../services/websocket.service';
 import { DataFormatService } from '../services/data-format.service';
 
+//Enviroment
+import { environment } from '../../environments/environment';
+
 @Component({
   selector: 'app-face',
   templateUrl: './face.component.html',
@@ -35,7 +38,7 @@ export class FaceComponent implements OnInit {
 
   init() {
     const delayTime = 3000;
-    this.socketSubscription  = this.websocketService.getData$(`ws://127.0.0.1:3012/face`)
+    this.socketSubscription  = this.websocketService.getData$(environment.face_url)
       .pipe(
         retryWhen(errors =>
           errors.pipe(

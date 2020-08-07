@@ -22,7 +22,7 @@
                 </div>
                 <div class="la-face-component-info">
                     <h3>Coincidence</h3>
-                    <h1>{{ face.percentage }}%</h1>
+                    <h1 [style.color]="face.color">{{ face.percentage }}%</h1>
                     <h3>Info</h3>
                     <p> ID #{{ face.id }} </p>
                     <p>{{ face.location }}</p>

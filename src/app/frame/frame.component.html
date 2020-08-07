@@ -3,8 +3,8 @@
         <span>Security cameras</span>
     </mat-card-title>
     <div class="la-card--content la-video-card--content">
-        <div class="la-frame-component">
-            <img class="la-frame-component--item" *ngIf="frame" [src]="frame.src">
+        <div class="la-frame-component" *ngIf="frame">
+            <img class="la-frame-component--item" [src]="frame.src">
             <div class="la-frame-component--info">
                 <span>Camera #{{ frame.id }}</span><br>
                 <span>{{ frame.date }}</span>
@@ -14,17 +14,21 @@
     </div>
     <mat-card-actions class="la-card--footer la-video-card--footer">
         <div class="la-video-card-actions">
-            <button class="la-video-card-actions--action" mat-flat-button (click)="toggle()">
-                <mat-icon class="la-video-card-icon">home</mat-icon>
+            <button *ngIf="ctrPlay" class="la-video-card-actions--action" mat-flat-button (click)="toggle()">
+                <mat-icon class="la-video-card-icon">play_arrow</mat-icon>
+                <span>Play</span>
+            </button>
+            <button *ngIf="!ctrPlay" class="la-video-card-actions--action" mat-flat-button (click)="toggle()">
+                <mat-icon class="la-video-card-icon">pause</mat-icon>
                 <span>Pause</span>
             </button>
-            <button class="la-video-card-actions--action" mat-flat-button>
-                <mat-icon class="la-video-card-icon">home</mat-icon>
-                <span>Pause</span>
+            <button class="la-video-card-actions--action" mat-flat-button (click)="openSnackBar('View logs', 'Coming soon')">
+                <mat-icon class="la-video-card-icon">list</mat-icon>
+                <span>Logs</span>
             </button>
-            <button class="la-video-card-actions--action" mat-flat-button>
-                <mat-icon class="la-video-card-icon">home</mat-icon>
-                <span>Pause</span>
+            <button class="la-video-card-actions--action" mat-flat-button (click)="openSnackBar('Adjust video properties', 'Coming soon')">
+                <mat-icon class="la-video-card-icon">settings</mat-icon>
+                <span>Settings</span>
             </button>
         </div>
     </mat-card-actions>

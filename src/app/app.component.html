@@ -12,32 +12,20 @@
                     <mat-icon class="la-list-icon">home</mat-icon>
                     <span class="la-list-title">Dashboard</span>
                 </mat-list-item>
-                <mat-list-item class="la-list--item">
-                    <mat-icon class="la-list-icon">home</mat-icon>
-                    <span class="la-list-title">Section 1</span>
-                </mat-list-item>
-                <mat-list-item class="la-list--item">
-                    <mat-icon class="la-list-icon">home</mat-icon>
-                    <span class="la-list-title">Section 2</span>
-                </mat-list-item>
-                <mat-list-item class="la-list--item">
-                    <mat-icon class="la-list-icon">home</mat-icon>
-                    <span class="la-list-title">Section 4</span>
-                </mat-list-item>
             </mat-list>
         </mat-sidenav>
         <mat-sidenav-content class="la-sidenav--content">
-            <mat-grid-list cols="2">
-                <mat-grid-tile>
+            <div class="la-sidenav-grid">
+                <div class="la-sidenav-grid--left">
                     <app-frame></app-frame>
-                </mat-grid-tile>
-                <mat-grid-tile>
+                </div>
+                <div class="la-sidenav-grid--right">
                     <app-face></app-face>
-                </mat-grid-tile>
-            </mat-grid-list>
+                </div>
+            </div>
         </mat-sidenav-content>
     </mat-sidenav-container>
-    <mat-toolbar class="la-toolbar-footer">
-        <span  class="la-toolbar-footer--title">Lanaccess</span>
-    </mat-toolbar>
+    <div class="la-toolbar-footer">
+        <span  class="la-toolbar-footer--title">Lanaccess Demo</span>
+    </div>
 </div>
