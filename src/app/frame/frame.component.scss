@@ -19,6 +19,10 @@
                 color: #fff;
                 background: rgba(0,0,0,.35);
                 padding: .5rem 1rem;
+                .la-frame-info {
+                    display: flex;
+                    justify-content: space-between;
+                }
             }
         }
     }

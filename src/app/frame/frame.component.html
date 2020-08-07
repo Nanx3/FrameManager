@@ -7,8 +7,10 @@
             <img class="la-frame-component--item" [src]="frame.src">
             <div class="la-frame-component--info">
                 <span>Camera #{{ frame.id }}</span><br>
-                <span>{{ frame.date }}</span>
-                <span>{{ frame.time }}</span>
+                <div class="la-frame-info">
+                    <span>{{ frame.date }}</span>
+                    <span>{{ frame.time }}</span>
+                </div>
             </div>
         </div> 
     </div>
