@@ -1,6 +1,60 @@
-.la-frame-component {
-    width: 100%;
-    .la-frame-component--item {
-        width: 100%;
+.la-video-card {
+    .la-video-card--content {
+        height: 100%;
+        scrollbar-face-color: #13132b;
+        scrollbar-track-color: #252547;
+        display: flex;
+        flex-direction: row;
+        flex: 1 1 auto;
+        overflow: auto;
+        .la-frame-component {
+            .la-frame-component--item {
+                width: 100%;
+            }
+            .la-frame-component--info {
+                cursor: pointer;
+                position: relative;
+                bottom: 61px;
+                left: 0;
+                color: #fff;
+                background: rgba(0,0,0,.35);
+                padding: .5rem 1rem;
+            }
+        }
+    }
+    .la-video-card--footer {
+        padding: 1rem 1.5rem;
+        border-top: 1px solid #1b1b38;
+        border-bottom-left-radius: .25rem;
+        border-bottom-right-radius: .25rem;
+        .la-video-card-actions {
+            display: flex;
+            align-items: center;
+            .la-video-card-actions--action {
+                &:first-child {
+                    border-left: none !important;
+                }
+                background-color: transparent;
+                color: #fff;
+                font-family: Open Sans,sans-serif;
+                font-weight: 700;
+                line-height: 1rem;
+                padding: 0;
+                cursor: pointer;
+                border-radius: 2px;
+                border-left: 1px solid #1b1b38;
+                font-size: .875rem;
+                height: 2.25rem;
+                justify-content: center;
+                width: 100%; 
+                .la-video-card-icon {
+                    margin-right: .5rem;
+                    font-size: 2.25rem;
+                    color: #b4b4db;
+                    width: 1em;
+                    height: 1em;
+                }
+            }
+        }
     }
 }

@@ -1,7 +1,7 @@
 @import '_spacing';
 
 .la-main-container {
-    .la-toolbar {
+    .la-toolbar-header {
         color: #fff;
         box-shadow: 0 0.5rem 1rem 0 #1a1f33;
         height: 4.75rem;
@@ -12,13 +12,13 @@
         left: 0;
         right: 0;
         z-index: 1040;
-        .la-toolbar--button {
+        .la-toolbar-header--button {
             .la-toolbar-icon {
                 margin-right: 1.25rem;
                 color: #b4b4db;
             }
         }
-        .la-toolbar--title {
+        .la-toolbar-header--title {
             padding: 0 1.25rem;
             font-size: 1.75rem;
             white-space: nowrap;
@@ -88,5 +88,19 @@
         .la-sidenav--content {
           padding: 2.25rem 2.25rem .75rem;
         }
+    }
+    .la-toolbar-footer {
+        display: flex;
+        background-color: #323259;
+        border-top: 1px solid #1b1b38;
+        color: #fff;
+        font-family: Open Sans,sans-serif;
+        font-size: .9375rem;
+        font-weight: 400;
+        line-height: 1.25rem;
+        padding: 1.25rem;
+        display: block;
+        margin-top: auto;
+        box-shadow: 0 0.5rem 1rem 0 #1a1f33;
     }
 }

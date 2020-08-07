@@ -1,4 +1,31 @@
-<div class="la-frame-component">
-    <img *ngIf="frame" class="la-frame-component--item" [src]="frame.src">
-    <button mat-raised-button color="warn" (click)="toggle()">Pause</button>
-</div>
+<mat-card class="la-card la-video-card">
+    <mat-card-title class="la-card--header">
+        <span>Security cameras</span>
+    </mat-card-title>
+    <div class="la-card--content la-video-card--content">
+        <div class="la-frame-component">
+            <img class="la-frame-component--item" *ngIf="frame" [src]="frame.src">
+            <div class="la-frame-component--info">
+                <span>Camera #{{ frame.id }}</span><br>
+                <span>{{ frame.date }}</span>
+                <span>{{ frame.time }}</span>
+            </div>
+        </div> 
+    </div>
+    <mat-card-actions class="la-card--footer la-video-card--footer">
+        <div class="la-video-card-actions">
+            <button class="la-video-card-actions--action" mat-flat-button (click)="toggle()">
+                <mat-icon class="la-video-card-icon">home</mat-icon>
+                <span>Pause</span>
+            </button>
+            <button class="la-video-card-actions--action" mat-flat-button>
+                <mat-icon class="la-video-card-icon">home</mat-icon>
+                <span>Pause</span>
+            </button>
+            <button class="la-video-card-actions--action" mat-flat-button>
+                <mat-icon class="la-video-card-icon">home</mat-icon>
+                <span>Pause</span>
+            </button>
+        </div>
+    </mat-card-actions>
+</mat-card>

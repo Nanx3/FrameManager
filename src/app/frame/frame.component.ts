@@ -44,6 +44,7 @@ export class FrameComponent implements OnInit {
       .subscribe(({data}) => {
         const objectURL = URL.createObjectURL(data);
         let frame = {
+          id: 1,
           date: this.dataFormatService.dateFormat(Date.now()),
           time: this.dataFormatService.timeFormat(Date.now()),
           src: this.sanitizer.bypassSecurityTrustUrl(objectURL)

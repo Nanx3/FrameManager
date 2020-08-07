@@ -1,6 +1,33 @@
-<div class="la-face-component">
-    <img
-        class="la-face-component--item"
-        *ngFor="let face of faces"
-        [src]="face.src">
-</div>
+<mat-card class="la-card">
+    <mat-card-title class="la-card--header">
+        <span>Detected faces</span>
+    </mat-card-title>
+    <div class="la-card--content">
+        <div class="la-face-component">
+            <div class="la-face-component--item" *ngFor="let face of faces">
+                <div class="la-face-comparation">
+                    <div class="la-face-comparation--img" [style.borderColor]="face.color">
+                        <img [src]="face.src">
+                        <div class="la-face-img-info">
+                            <p>{{ face.date }}</p>
+                            <p>{{ face.time }}</p>
+                        </div>
+                    </div>
+                    <div class="la-face-comparation--chevron">
+                    <mat-icon>code</mat-icon>
+                    </div>
+                    <div class="la-face-comparation--img" [style.borderColor]="face.color">
+                        <img src="../../assets/img/default.jpg">
+                    </div>
+                </div>
+                <div class="la-face-component-info">
+                    <h3>Coincidence</h3>
+                    <h1>{{ face.percentage }}%</h1>
+                    <h3>Info</h3>
+                    <p> ID #{{ face.id }} </p>
+                    <p>{{ face.location }}</p>
+                </div>
+            </div>
+        </div>
+    </div>       
+</mat-card>
