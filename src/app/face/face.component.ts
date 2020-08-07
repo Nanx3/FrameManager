@@ -51,12 +51,15 @@ export class FaceComponent implements OnInit {
       )
       .subscribe(({data}) => {
         const objectURL = URL.createObjectURL(data);
-        let percentage = this.getPercentage(); 
+        let percentage = this.getPercentage();
+        let img = new Image()
+        img.onload = () => { URL.revokeObjectURL(objectURL) }
+        img.src = objectURL
         let face = {
           id: this.getId(),
           date: this.dataFormatService.dateFormat(Date.now()),
           time: this.dataFormatService.timeFormat(Date.now()),
-          src: this.sanitizer.bypassSecurityTrustUrl(objectURL),
+          src: this.sanitizer.bypassSecurityTrustUrl(img.src),
           location: this.getLocation(),
           percentage: percentage,
           color: this.getColor(percentage)

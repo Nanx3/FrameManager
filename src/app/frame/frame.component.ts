@@ -48,11 +48,14 @@ export class FrameComponent implements OnInit {
       )
       .subscribe(({data}) => {
         const objectURL = URL.createObjectURL(data);
+        let img = new Image()
+        img.onload = () => { URL.revokeObjectURL(objectURL) }
+        img.src = objectURL
         let frame = {
           id: 1,
           date: this.dataFormatService.dateFormat(Date.now()),
           time: this.dataFormatService.timeFormat(Date.now()),
-          src: this.sanitizer.bypassSecurityTrustUrl(objectURL)
+          src: this.sanitizer.bypassSecurityTrustUrl(img.src)
         };
         this.frame = frame;
       }, err => {
